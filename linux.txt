@@ -393,6 +393,8 @@ dig 2h4.5v.pl +trace - pokaż całą ścieżkę odpytywania serwerów DNS
 dig 2h4.5v.pl +short - pokaż skróconą wersję działa z przełącznikiem -x
 dig -f plik.txt +short - wyszukaj adresy z pliku tekstowego(linia po lini)
 
+
+NARZĘDZIE wget
 wget -narzędzie do pobierania z sieci
 wget URL -O Nazwa_pliku - przełącznik -O powoduje że zapisujemy plik pod inną nazwą
 wget -q url - tryb cichy, nie wyświetla żadnych danych na konsoli
