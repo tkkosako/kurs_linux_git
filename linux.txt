@@ -1,0 +1,401 @@
+
+. - Obecny katalog
+.. - Katalog nadrzędny
+~ - Katalog domowy
+/ - Katalog "ROOT"
+cd - przenosi do katalogu domowego
+cd - - przenosi do katalogów czy miejsca poprzedniego ( piętro wyżej)
+cd ~ - przenosi do katalogu domowego użytkownika
+
+ls -a - wyświetla listę katalogów i plików również te ukryte ( . i .. czyli do siebie samego i do katalogu nadrzędnego)
+Ls -A - zawartość bieżącego folderu 
+
+tree - wyświetla listę katalogów i plików w formie drzewa
+tree -L 1. - wyświetla same nazwy katalogów głównych, cyferki oznaczają poziom który jest wyświetlanym
+
+mkdir -p - pozwala stworzyć całą ścieżkę, nową ścieżkę do folderu, ale gdy robimy duplikat to nie krzyczy że juz cos istnieje
+mkdir - przy duplikacie krzyczy ze folder juz istnieje
+
+rmdir - usuwanie katalogów
+
+cp - kopiowanie, kopiuje plik do innego katalogu lub kopiuje plik w tym samym katalogu ale trzeba w nim być
+
+mv - move, do przenoszenia plików, do zmiany nazwy ale trzeba podawać całą ścieżkę  gdzie ma to zostać zmienione
+
+cp/mv -f - force, nie pyta o pozwolenie, tylko wymusza tzw. tryb cichy
+cp/mv -r - recursive, przenosi lub kopiuje również zawartość katalogów
+
+rm - usuwa pliki i katalogi
+rm -r - usuwa katalogi z zawarotością
+rm -d - pozwala usuwac katalogi ale katalog musi byc pusty
+
+stat - można sprawdzić datę i godzinę utworzenia pliku
+
+cat - można wyswietlic dwa pliki jednocześnie, ale wygląda to jakby było scalone
+
+head - pokazuje tylko pierwsze pięć lini
+head -10 - cyfra wywietla ilosc lini 
+
+tail - wywietla końcówkę pliku ostatnie piec lini
+tail -f - odświeża nam treść pliku gdy pojawia się nowa treść, może np. wyświetla treść logów na żywo
+
+grep - pozwala wyświetlić tylko te linie które spełniają warunek wpisany do komendy
+grep -v - wyszuka tylko te linie które nie zawierają wzorca
+grep -i -ignoruje wielkość wyszukiwanych liter
+grep -r - pozwoli wyszukać wszystkie pliki wewnątrz podanej ścieżki
+grep -c - zwraca ilość lini które zawierają szukany wzorzec
+
+less -N - pozwala wyswietlić jeden plik tak jak stronę
+more -N - wyśwetla również stronę ale po trochu ją odkrywa
+
+watch - wykonuje komendę wielokrotnie
+watch -n 1 date
+
+alias - własna nazwa dla jakiejś innej komendy
+alias szukaj="grep -rn. -e"
+alias update='sudo apt update'
+
+alias tymczasowy
+ll='ls -ls'
+
+nano - edytor tekstowy, można utworzyć od razu plik np. nano nowyplik.txt tworzy nowy plik od razu do edycji
+
+find - przeszukuje obecny katalog
+find -name plik1 - wyszukuje plik o danej nazwie
+find -i name plik1 - wyszukuje ignorując wielkość liter w drzewie
+find -type typ - wyszukuje pliki określonego typu np. plik, katalog, link symboliczny
+find -size -1M - wyszukuje plik o danej wielkości
+
+locate - przeszukuje swoją bazę, ważna jest wielkość znaków,
+whereis -  wyszuka plik wykonywalny dla szukanego programu, zlokalizuje wpisy man i help
+which - wyszuka plik  wykonywalny dla szukanego programu/ nie wyszuka pliku textowego
+
+tar - narzędzie do archiwizacji, nie kompresuje
+   -c/-x  -przełącznik Create(utwórz) lub eXtrackt(rozpakuje)
+   -z - zip do zainicjowania kompresji
+   - v- wyświetla efekt na konsoli
+   -f - pozwala na samodzielne podanie nazwy archiwum
+gzip - do kompresji archiwów utworzonych przez tar
+tar -czvf nazwa.tar.gz scieżka do pliku /.../.../plik.txt
+
+-exclude=WZORZEC      wykluczenie nazw pasujących do WZORCA
+wykluczenie tylko np. plików .pdf
+tar -czvf nazwaPakowana.tar.gz --exclude='ścieżka/do/pliku*.pdf' nazwaFolderudo_spakowana
+
+TWORZENIE UŻYTKOWNIKÓW
+ROOT - masz wszystkie prawa administracyjne, posiada dedykowany folder root
+SUDO - wykonanie akcji z uprawnieniami admina
+usermod -aG sudo <nazwa użytkownika, którego chcesz dodać> dodanie do pliku sudoers( restart/wyloguj)
+
+useradd -m test2 - przełącznik -m tworzy własny katalog domowy dla uzytkownika test2
+                    nowe konto tworzy się bez hasła więc trzeba ustawić hasło passwd
+whoami - kim jestem, nazwa uzytkownika na który jestem zalogowany
+su- przechodzimy ze wszystkimi zmiennymi środowiskowymi z tego terminala
+su -  - czyści zmienne środowiskowe i mamy czystą sesję
+sudo su - przelogowanie się na usera root
+id - do jakich grup należę, nr użytkownika 
+. przed nazwą oznacza że to plik ukryty
+
+d - katalog
+- - plik
+| - oznacza link
+rwx - U - user, G - Group, O - Others
+4 r = read
+2 w = write
+1 x = execution
+A - all, wszyscy
+
+Zmiana uprawnień
+chmod ugoa - jakiej grupie dodajemy uprawnienia
+chmod u+rwx plik1 dodajemy uprawnienia
+chmod u-rwx plik1 odejmowanie uprawnień
+
+Zmiana własności 
+chown jinok:jinok plik1
+
+INSTALACJA PROGRAMÓW
+apt-get
+apt - jest nowszy, instalacja rozwiązuje zależności samodzielnie
+sudo apt-get install program (etc/apt/sources.list)
+
+apt search program wyświetla listę z zewnętrznymi źródłami paczek
+apt update aktualizuje lokalną kopię repozytorium
+apt remove program - usuwa paczkę o nazwie program
+apt upgrade - aktualizuje cały pakiet apt
+apt purge program - usuwam paczkę i wyczyści wszystkie zależności
+
+dpkg menadżer paczek dla debiana
+dpkg -i program.deb - zainstaluje program z lokalnej paczki program.deb
+dpkg -r usuwa program z systemu z poprzednio zainstalowanej paczki program.deb
+dpkg nie potrafi rozwiązywać zależności tak jak apt
+
+LOGI
+Ubuntu zapisuje pliki z logami w katalogu /var/log
+dmesg - wyświetli wszystkie logi(logi jądra), za pomocą cat możemy podejżeć pliki loga
+
+sudo cat /var/log/auth.log
+
+logrotate - sterowanie logami
+/etc/logrotate.conf
+/etc/logrotate.d
+Zachowaj 12 plików z logami/ Rotuj logiem raz w miesiącu/ Spakuj stary plik z logiem/Nie generuj błędu jeśli nie ma pliku z logiem/ Nie rotuj jeśli plik z logiem jest pusty
+
+tail -f /var/log/auth.log - automatyczne odświeżanie i podgląd logów
+
+WERSJA UBUNTU
+lsb_release -a
+
+Zaawansowane komendy Linuxa
+strumienie danych - każdy uruchomiony program posiada 3 domyślne strumienie danych: wyjściowy(stdin 0), wyjściowy ( stdout 1) i błędów ( stderr 2)
+Każdy strumień można przekierować do innego programu czy pliku
+Strumień danych nie jest argumentem, natomiast każdy argument jest strumieniem
+
+Przekierowanie danych
+Program 1> plik  - przekaż strumień stdout do pliku
+Program 2> plik  - przekaż strumień stderr do pliku
+Program &> plik  - przekaż oba strumienie stdout i stderr do tego samego pliku
+plik > Program   - przekaż strumień stdin z pliku do programu/ przekierowanie zawartości 
+
+PIPE
+Komenda 1 | Komenda 2
+history | grep sudo
+
+TEE
+jednoczesne przekierowanie strumienia danych do pliku na konsolę i do innego programu
+
+ping google.pl | tee ping.txt - wyświetla wynik i jednocześnie zapisuje go do pliku
+ping google.pl | tee -a ping.txt  - wyświetla wynik i jednocześnie nadpisuje go do pliku, nie kasując poprzedniej zawartości
+ping google.pl | tee ping.txt ping2.txt - wyświetla wynik i jednocześnie zapisuje go do pliku dwóch plików
+ping google.pl | tee ping.txt | head -2 - uruchamia komendę, zapisuje wynik, oraz przekaże dane do komendy head -2 i wyświetli na konsoli
+
+XARGS
+
+przyjmuje strumień wyjścia  programu i przekazuje go do kolejnego w postaci jej argumentów, a nie strumienia
+echo file2 | xargs rm
+echo nmap.txt ping.txt | xargs rm
+
+CRON zaplanowane akcje
+Pozwala wykonywać określone skrypty i programy zgodnie z ustalonym harmonogramem
+sudo crontab -e - root też posiada własnego crontaba
+
+crontab -e - każdy użytkownik posiada w linuxie własnego crontaba, przełącznik -e pozwala na edycję
+
+cron: składnia
+*****/ścieżka/do/komendy
+*minuta *godzina *dzień *miesiąc *dzień tygodnia
+zostawienie gwiazdki oznacza ekwiwalent każdy 
+*/30,12,0 * */2 0 3 - oznacza że komenda wykona się w każdą środę i niedzielę co drugiego miesiąca, o 12, 12:30, 0 i 0:30
+
+Cron wbudowane harmonogramy
+@reboot - uruchamia skrypt tuż po ponownym uruchomieniu pc
+@yearly - raz do roku: ekwiwalent "0011*"
+@monthly - co miesiąc:ekwiwalent "001**"
+@weekly - co tydzień: ekwiwalent "00**0"
+@daily - codziennie: ekwiwalent "00***"
+@hourly - co godzinę: ekwiwalent "0****"
+
+crontab -l - wyświetla tablicę cron na konsoli
+crontab -r - usunąć tablicę dla danego użytkownika
+sudo systemctl status cron -sprawdzenie czy cron działa
+*/5 * * * * date >> /home/jinok/plikdaty
+
+PATH zmienna środowiskowa
+export ZMIENNA=klucz - pozwala dodać nową zmienną środowiskową do listy
+przykład: export PATH=$PATH:/usr/bin/zip
+
+env - komenda pozwala wyświetlić na konsoli wszystkie zmienne środowiskowe
+env | grep <VARIABLE>
+
+echo $EDITOR - domyślny edytor
+echo $USER   - aktualnie zalogowany użytkownik
+echo $HOME  - katalog domowy, ścieżka
+echo $PATH  - zbiór ścieżek do plików binarnych kolekcji programów
+echo $PAGER  - Paginator do wyświetlania bardzo dużej ilości tekstu
+
+SET komenda pozwala zarządzać ustawieniami samej powłoki
+np. set -o history - historia komend
+set -x - tryb debug wyświetla każdą komendę
+set +x - wyłączenie tego trybu
+set -e - w przypadku wydania kilku komend wykonanie zatrzyma się na pierwszym błędzie.
+
+.bash_profile - wykonywany jest każdorazowo podczas logowania na daną maszynę( lokalnie lub zdalnie)
+.bashrc - wykonywany jest gdy już Jesteśmy zalogowani na danym komputerze i otwieramy kolejną konsolę
+
+SKRYPTY
+Shebang: #!/
+Shebang to sekwencja znaków na poczatku skryptu (#!)
+np. #!/bin/bash - dla skryptów Bash
+#!/usr/bin/python - dla skryptów pythona
+
+pisanie skryptu na poczatku shebang a potem komendy do wykonania
+plik skryptu musi byc wykonywalny, aby użyc skrypt ./plik.sh
+
+PROCESY,ZASOBY,LINKI
+ rodzaje procesów - background - nie jest podjęty do żadnego aktywnego terminala i nie wymaga aktywności użytkownika
+ foreground - podpięty pod instancję terminala i może wymagać aktywności użytkownika
+Każdy zainicjowany proces posiada Swoj własny unikalny PID( proces identificator)
+Nadrzędnym procesem z PID 1 jest init( w teraźniejszych systemach - systemd)
+Running - proces jest aktualnie wykonywany w trybie użytkownika lub jądra
+Ready to run - proces czeka w kolejce do wykonania
+Waiting - Proces czeka na zewnętrzne zdarzenie, np. wciśnięcie klawisza
+Stopped - Process zamrożony, np. do debugowania
+Zombie - Porzucony, nieżywy proces, który nie został poprawnie zamknięty i usunięty z tablicy
+SIGHUP1  kill-1 PID - sygnał wyłączenia terminalu kontrolującego process
+SIGINT 2 kill -2PID Sygnał przerwania procesu( z klawiatury ctrl +c)
+SIGQUIT3 klil -3 PID Sygnał wyjścia z procesu ( ctrl+d)
+SIGKILL -9 kill -9 PID Sygnał wymuszonego zabicia procesu
+SIGTERM15 kill -15 PID Sygnał zabicia procesu(domyślny)
+SITSTP20 kill -20 PID Sygnał zatrzymania procesu( ctrl +z)
+
+Lista procesów 
+ps - do wylistowania wszystkich procesów 
+ps -aux | less
+
+USER na jakim konkretnie użytkowniku pracuje process
+PID jaki ma pid
+%CPU jaki procent procesora jest wykorzystywany
+%MEM jaki procent pamięci jest wykorzystywany
+VSZ
+RSS
+TTY jaki terminal jest przypisany : ? tzn. że mamy proces w tle lub nieinteraktywny
+STAT rodzaj procesu
+START start procesu
+TIME czas dzisłania procesu
+COMMAND i jakaś komenda
+
+ps -a - wyświetla wszystkie procesy terminali
+ps -ax -wyświetla wszystkie procesy inne niż terminale
+ps -U user - wyświetla wszystkie procesy dla danego użytkownika
+ps -k (+_)pid -sortuj wyniki rosnąco lub malejąco względem podanego nagłówka( tutaj PID)
+ps axuk +cpu -U panda(jinok)
+
+deamon  - proces działający w tle, nie przypisany do żadnej konsoli i nie wymagający interakcji z użytkownikiem
+service - jest specjalnym rodzajem procesu, który odpowiada na zapytania innych programów
+ZARZADZANIE PROCESAMI/SERVISAMI
+Serwisy znajdziemy w /etc/init.d/ 
+service cron status
+-start
+-stop
+-restart
+systemctl enable cron
+-restart
+-start
+-stop
+-status
+-reload
+-disable
+
+pstree drzewo procesów
+pstree user -wszystkie procesy dla danego użytkownika
+pstree PID -wszystkie procesy potomne dla wskazanego procesu
+pstree -p  -wyświetl PID wszystkich procesów i podprocesów
+pstree -H PID - podświetl konkretny PID
+pstree -n -posortuj procesy względem PID
+
+pidof program wyświetla PID przypisany do danego programu
+
+top -komenda, dzięki której można na żywo obserwować zużycie zasobów procesora
+htop -ma więcej opcji ale jest to to samo co top
+
+h -pomoc programu
+d/s - czas odświerzania
+spacja -"odśwież"
+n - ile procesów wyświetlić
+f -zarządzanie oknami
+M -sortowanie według %mem
+N -sortowanie wg. PID
+P -sortowanie według %CPU
+T -sortowanie procesów wg. czasu
+k -zabicie procesu
+r -zmiana priorytetu
+w -zapisz konfigurację "top"
+A -włącz widok wielu okien
+
+nice - ustala priorytet dla nowego procesu
+renice - dla istniejącego procesu
+
+free - ile mamy pamięci dostępnej
+df - wyświetla całkowity rozmiar dysku podzielony na namespace'y
+du - wyswietla wielkość plików
+df -h - czytelne dla ludzi
+df -i informacje o i-wezłach zamiast o blokach danych
+df -l informacje tylko o dyskach lokalnych
+du -s zsumuj całkowite zużycie dysku
+du -h zrozumiałe dla człowieka
+du -l - info o dyskach lokalnych
+fdisk - do wyświetlania i zarządzania partycjami MBR
+gdisk/ parted - do wyświetlania i zarządzania partycjami GPT
+
+LINKI
+link twardy - utworzenie nowej nazwy dla istniejącego pliku. Nowa nazwa wskazuje na te same dane co plik główny. Nawiązuje do tego samego "i-węzła" w systemie
+Link symboliczny - dowiązanie do nazwy pliku a nie jego zawartości, podobne jak skrót w MS windows
+
+ln /plik1 /link1  - Link twardy między plikiem 1 a linkiem 1
+ln -s /plik1 /link1 - Link symboliczny, między plikiem 1 a linkiem 1
+unlink link - usuń podany link
+
+MANIPULACJA DANYMI - zaawansowane komendy w linux
+AWK
+SED
+CUT - pozwala wyekstraktowanie z pliku dokładnie sprecyzowanych danych i wyświetlenie ich na konsoli
+cut -c -pobiera nam z pliku wskazany zasięg znaków
+cut -c 1,2,3 cut.txt
+cut -c 1-3, 7-9 cut.txt
+cut -c 4- cut.txt ( od cztery w górę)
+cut -c -4 cut.txt
+
+cut -f(liczba) plik
+cut -d "delimiter" plik -przełącznik -f obsługuje domyślnie delimiter w postaci znaku "tab". Przełącznik -d pozwala zdefiniować własny delimiter
+cut -d " " -f 2 cut.txt
+cut -d " " -f 3-5 cut.txt
+
+
+..............................................................
+NETWORK
+........
+ssh-keygen -t rsa  - chcemy wygenerować publiczny klucz rsa
+
+można dodawać własny resolver dns
+/et/hosts
+
+/etc/nsswitch.conf - podobne do pliku powyżej ale trochę inne
+/etc/resolv.conf  - zawiera listę wszystkich przestrzeni do rozwiązywania nazw, można dodać serwery dns, nie modyfikować tego pliku
+/etc/netplan/*.yaml -plik komfiguracyjny dola wszystkich adapterów sieciowych aktywnych na danej maszynie
+
+ifconfig -v -zwiększa poziom szczegółowości pod kątem błędów
+-s skrócona versia
+-a wyświetla więcej szczegółów
+
+ip - zaawansowane urządzenie do sterowania wszystkimi aspektami sieci. Powiela funkcje ifconfig, interfaces, resolv.conf, zaawansowane
+np. ip a - pokazuje wszystkie interface
+ip link set <nazwa interface> up/down
+
+ping - protokół ICMP echo.
+ping -i -ustala czas pomiędzy odpytaniami
+-c -ilość wysyłanych pakietów
+-s - wielkość pakietu próbnego
+-t ttl -ustala czas wygaśnięcia pakietów TTL
+
+traceroute - bada dokładną trasę między hostami
+-I protokół ICMP
+-T protokół TCP
+-U wykorzystuje protokół UDP
+-m max liczba przeskoków(domyślnie 30 hopów)
+-4/6 używaj wyłącznie IPv4 lub IPv6 do badania
+
+nslookup - do odpytywania serwery DNS o zapisane rekordy dla podanej strony czy adresu
+
+dig -narzedzie do odpytywania serwerów DNS o konkretne nazwy lub adresy, ma bardziej zaawansowaną strukturę
+dig 2h4.5v.pl - zweryfikuj wpisy DNS dla adresu 2h4.5v.pl
+dig @8.8.8.8 2h4.5v.pl - zweryfikuj adresy DNS na konkretnym serwerze (8.8.8.8) dla adresu 2h4.5v.pl
+dig -x 79.137.71.10 zwróć nazwę DNS dla podanego adresu
+dig 2h4.5v.pl +trace - pokaż całą ścieżkę odpytywania serwerów DNS
+dig 2h4.5v.pl +short - pokaż skróconą wersję działa z przełącznikiem -x
+dig -f plik.txt +short - wyszukaj adresy z pliku tekstowego(linia po lini)
+
+wget -narzędzie do pobierania z sieci
+wget URL -O Nazwa_pliku - przełącznik -O powoduje że zapisujemy plik pod inną nazwą
+wget -q url - tryb cichy, nie wyświetla żadnych danych na konsoli
+wget -c url - wznawia pobieranie częściowo zapisanego pliku
+wget -b url - pobieraj pliki w tle
+
