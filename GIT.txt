@@ -17,6 +17,7 @@ git commit -m " -commit czyli umieszczamy plik w naszym repozytorium ,przełącz
 git commit -m "initial" -> Komity zaczyna się od 
 git log - historia naszych commitów
 git log -p plik.txt - szczegółowe informacje zmian
+git revert (6 znaków z commita) - cofnięcie zmian, dokonanych 
 
 git touch plik.txt
 git add .
