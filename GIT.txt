@@ -15,6 +15,7 @@ git status - informuje nas co mamy w katalogu
 git add linux.txt - dodajemy nasz plik do stagingu czyli zmian które czekają na dodanie do repozytorium. Gdy mamy więcej plików dodajemy je po koleii lub możemy wpisać je w jednej lini 
 git commit -m " -commit czyli umieszczamy plik w naszym repozytorium ,przełącznik m oznacza że w cudzysłowiu będziemy dodawać jakąś etykietę"
 git commit -m "initial" -> Komity zaczyna się od 
+git log - historia naszych commitów
 
 git touch plik.txt
 git add .
