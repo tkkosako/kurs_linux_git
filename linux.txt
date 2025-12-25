@@ -366,6 +366,7 @@ ifconfig -v -zwiększa poziom szczegółowości pod kątem błędów
 -s skrócona versia
 -a wyświetla więcej szczegółów
 
+NARZĘDZIE ADMINISTRATORA
 ip - zaawansowane urządzenie do sterowania wszystkimi aspektami sieci. Powiela funkcje ifconfig, interfaces, resolv.conf, zaawansowane
 np. ip a - pokazuje wszystkie interface
 ip link set <nazwa interface> up/down
