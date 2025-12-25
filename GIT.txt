@@ -18,7 +18,6 @@ git commit -m "initial" -> Komity zaczyna się od
 git log - historia naszych commitów
 git log -p plik.txt - szczegółowe informacje zmian
 git revert (6 znaków z commita) - cofnięcie zmian, dokonanych 
-spróbuję cofnąć zmiany
 
 git touch plik.txt
 git add .
