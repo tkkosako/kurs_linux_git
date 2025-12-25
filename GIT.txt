@@ -1,0 +1,27 @@
+git config --global user.name "jinok"
+git config --global user.email "jinok@o2.pl"
+git conig --list
+user.email=jinok@o2.pl
+user.name=jinok
+credential.helper=cache
+
+mkdir folder
+cd folder
+git init folder  
+
+
+git init - tworzenie repozytorium git, to jest miejsce gdzie są przechowywane pliki( powstaje folder .git)
+git status - informuje nas co mamy w katalogu
+git add linux.txt - dodajemy nasz plik do stagingu czyli zmian które czekają na dodanie do repozytorium. Gdy mamy więcej plików dodajemy je po koleii lub możemy wpisać je w jednej lini 
+git commit -m " -commit czyli umieszczamy plik w naszym repozytorium ,przełącznik m oznacza że w cudzysłowiu będziemy dodawać jakąś etykietę"
+git commit -m "initial" -> Komity zaczyna się od 
+
+git touch plik.txt
+git add .
+git status
+git commit plik.txt
+
+git log
+git diff -> pokazuje w którym miejscu zostało coś zmienione
+gitignore
+
