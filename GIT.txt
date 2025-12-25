@@ -16,6 +16,7 @@ git add linux.txt - dodajemy nasz plik do stagingu czyli zmian które czekają n
 git commit -m " -commit czyli umieszczamy plik w naszym repozytorium ,przełącznik m oznacza że w cudzysłowiu będziemy dodawać jakąś etykietę"
 git commit -m "initial" -> Komity zaczyna się od 
 git log - historia naszych commitów
+git log -p plik.txt - szczegółowe informacje zmian
 
 git touch plik.txt
 git add .
