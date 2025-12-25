@@ -402,3 +402,5 @@ wget -q url - tryb cichy, nie wyświetla żadnych danych na konsoli
 wget -c url - wznawia pobieranie częściowo zapisanego pliku
 wget -b url - pobieraj pliki w tle
 
+
+
