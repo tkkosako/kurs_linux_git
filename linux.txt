@@ -39,6 +39,7 @@ head -10 - cyfra wywietla ilosc lini
 tail - wywietla końcówkę pliku ostatnie piec lini
 tail -f - odświeża nam treść pliku gdy pojawia się nowa treść, może np. wyświetla treść logów na żywo
 
+WYSZUKIWANIE OKREŚLONYCH INFORMACJI W PLIKACH
 grep - pozwala wyświetlić tylko te linie które spełniają warunek wpisany do komendy
 grep -v - wyszuka tylko te linie które nie zawierają wzorca
 grep -i -ignoruje wielkość wyszukiwanych liter
