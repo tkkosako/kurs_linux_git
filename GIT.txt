@@ -1,3 +1,5 @@
+GIT DLA POCZĄTKUJĄCYCH
+
 git config --global user.name "jinok"
 git config --global user.email "jinok@o2.pl"
 git conig --list
@@ -31,6 +33,8 @@ master - nazwa gałęzi
 git push wysyłamy nasze repozytorium 
 git push origin master
 podajemy login i hasło
+
+git push -u origin master
 
 PODŁĄCZANIE SIĘ DO ISTNIEJĄCEGO JUŻ REPOZYTORIUM
 
