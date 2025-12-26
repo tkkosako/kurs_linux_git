@@ -32,6 +32,13 @@ git push wysyłamy nasze repozytorium
 git push origin master
 podajemy login i hasło
 
+PODŁĄCZANIE SIĘ DO ISTNIEJĄCEGO JUŻ REPOZYTORIUM
+
+git clone git@github.com:USER/REPO.git
+git pull
+git push
+
+
 git touch plik.txt
 git add .
 git status
