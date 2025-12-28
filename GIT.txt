@@ -1,4 +1,5 @@
 GIT DLA POCZĄTKUJĄCYCH
+Adres email musi być taki sam w gicie lokalnym jak i gicie zdalnym
 
 git config --global user.name "jinok"
 git config --global user.email "jinok@o2.pl"
@@ -38,7 +39,10 @@ git push -u origin master
 
 PODŁĄCZANIE SIĘ DO ISTNIEJĄCEGO JUŻ REPOZYTORIUM
 
-git clone git@github.com:USER/REPO.git
+git clone git@github.com:USER/REPO.git -> nie pyta o login i hasło, przydaje się do pracy juz na gotowym projekcie 
+Gdy wykonamy git clone to git tworzy ukryty katalog gita w ściągniętym katalogu, trzeba wejść do niego i wtedy wykonać ściągnięcie czyli git pull
+git pull origin master -> ściągnięcie z katalogu zdalnego
+
 git pull
 git push
 
