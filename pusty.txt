@@ -1,6 +1,6 @@
-To będzie plik na którym będzie pracować kilka osób
-okaże się jak to będzie wyglądać
+cztery 4
+pięć 5
+siedem 7
 
-raz 1
-dwa 2
-trz 3
+niech to będzie tak jak teraz
+
