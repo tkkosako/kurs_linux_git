@@ -43,6 +43,10 @@ git clone git@github.com:USER/REPO.git -> nie pyta o login i hasło, przydaje si
 Gdy wykonamy git clone to git tworzy ukryty katalog gita w ściągniętym katalogu, trzeba wejść do niego i wtedy wykonać ściągnięcie czyli git pull
 git pull origin master -> ściągnięcie z katalogu zdalnego
 
+ZMIANA Z HTTPS NA SSH
+git remote set-url origin git@github.com:tkkosako/kurs_linux_git.git
+
+
 git pull
 git push
 
