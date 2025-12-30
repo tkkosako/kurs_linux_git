@@ -1,0 +1,75 @@
+Pobieranie danych od użytkownika
+
+echo 'Jak masz na imię? '
+read zmienna
+echo "Twoje imię to: $zmienna"
+
+Przykład: Generator wizytówki
+#!/bin/bash
+echo 'Witaj w generatorze wizytówek v. 13.666'
+echo '#####################################'
+echo 'Program poprosi cię o wpisanie różnych danych.'
+echo 'Po wpisaniu wciśnij Enter by przejść dalej.'
+echo '#####################################'
+echo 'Podaj swoje Imię i Nazwisko:'
+read name
+echo 'Podaj swój adres E-Mail:'
+read mail
+echo 'Podaj numer Gadu-Gadu:'
+read gg
+echo '#####################################'
+echo 'Pobieranie danych zakończone'
+touch wizytowka.txt
+echo "$name" >> wizytowka.txt
+echo "Email: $mail" >> wizytowka.txt
+echo "Gadu-Gadu $gg" >> wizytowka.txt
+echo 'Generowanie wizytówki zakończone'
+echo 'Plik wizytowka.txt gotowy!'
+echo '#####################################'
+
+Przy okazji >> dopisuje dane do pliku więc wielokrotne wywołanie skryptu nie nadpisze danych...
+
+Parametry wywołania
+Wiele aplikacji przyjmuje parametry, np. ls -a. Bardzo prosto parametry te "przechwycić".
+#!/bin/bash
+echo "Nazwa skryptu to: $0"
+echo '------------------------------------'
+echo "Nazwa pierwszego argumentu to: $1"
+echo '------------------------------------'
+echo "Wszystkie argumenty: $*"
+echo '------------------------------------'
+echo "Podałeś $# poleceń"
+Wywołanie ./a2.sh polecenie1 polecenie2 polecenie3 wyświetli:
+Nazwa skryptu to: ./a2.sh
+------------------------------------
+Nazwa pierwszego argumentu to: polecenie1
+------------------------------------
+Wszystkie argumenty: polecenie1 polecenie2 polecenie3
+------------------------------------
+Podałeś 3 poleceń
+$0 - nazwa skryptu, $n - wartość n-tego parametru, $* - wszystkie parametry, $# - liczba poleceń.
+
+Skrypt przykładowy 2 - Generator wizytówki z wyborem pliku
+#!/bin/bash
+echo 'Witaj w generatorze wizytówek v. 13.666'
+echo '#####################################'
+echo 'Program poprosi cię o wpisanie różnych danych.'
+echo 'Po wpisaniu wciśnij Enter by przejść dalej.'
+echo '#####################################'
+echo 'Podaj swoje Imię i Nazwisko:'
+read name
+echo 'Podaj swój adres E-Mail:'
+read mail
+echo 'Podaj numer Gadu-Gadu:'
+read gg
+echo '#####################################'
+echo 'Pobieranie danych zakończone'
+touch $1
+echo "$name" >> $1
+echo "Email: $mail" >> $1
+echo "Gadu-Gadu $gg" >> $1
+echo 'Generowanie wizytówki zakończone'
+echo "Plik $1 gotowy!"
+echo '#####################################'
+
+./skrypt plik-do-zapisu.txt
