@@ -1,4 +1,4 @@
-
+PODSTAWOWE KOMENDY I OPIS
 . - Obecny katalog
 .. - Katalog nadrzędny
 ~ - Katalog domowy
@@ -12,6 +12,8 @@ Ls -A - zawartość bieżącego folderu
 
 tree - wyświetla listę katalogów i plików w formie drzewa
 tree -L 1. - wyświetla same nazwy katalogów głównych, cyferki oznaczają poziom który jest wyświetlanym
+
+TWORZENIE KATALOGÓW I OPERACJE NA KATALOGACH
 
 mkdir -p - pozwala stworzyć całą ścieżkę, nową ścieżkę do folderu, ale gdy robimy duplikat to nie krzyczy że juz cos istnieje
 mkdir - przy duplikacie krzyczy ze folder juz istnieje
@@ -28,6 +30,8 @@ cp/mv -r - recursive, przenosi lub kopiuje również zawartość katalogów
 rm - usuwa pliki i katalogi
 rm -r - usuwa katalogi z zawarotością
 rm -d - pozwala usuwac katalogi ale katalog musi byc pusty
+
+KOMENDY INFORMACYJNE
 
 stat - można sprawdzić datę i godzinę utworzenia pliku
 
