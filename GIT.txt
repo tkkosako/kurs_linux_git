@@ -49,7 +49,8 @@ git remote set-url origin git@github.com:tkkosako/kurs_linux_git.git
 
 git pull
 git push
-
+git branch - na której gałęzi obecnie jesteśmy
+git checkout -b "dodajemy branch" ( gdy sprawdzimy git branch to zobacztymy że jest kolejna gałąź)
 
 git touch plik.txt
 git add .
