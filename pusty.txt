@@ -1,6 +1,18 @@
-cztery 4
-pięć 5
-siedem 7
+Kregkato               KA          Jan Kowalski                23           .98.              \3\              88
 
-niech to będzie tak jak teraz
+Kregkato               KA          Piotr Pawlak                23            .98.              \3\              88
+
+Pregpod                PO         Krzysztof Wrak             25            .45.              \2\              77
+
+Cregcent               CE          Jola Kruk                    19             .74               \1\              65
+
+Mregmazu              MA         Urszula Kropiuk            14             .54.              \5\              85
+
+Pregpod                PO         Zygmunt Malina            25            .45.              \2\               54
+
+Wregwielko            WK        Marian Kluska               35             .98.              \4\              77
+
+Greggda                 GD         Katarzyna  Polak          58             .69.              \9\              87
+
+Cregcent                CE         Mariusz Pol                  19             .54.              \1\              77
 

@@ -43,13 +43,35 @@ head -10 - cyfra wywietla ilosc lini
 tail - wywietla końcówkę pliku ostatnie piec lini
 tail -f - odświeża nam treść pliku gdy pojawia się nowa treść, może np. wyświetla treść logów na żywo
 
-WYSZUKIWANIE OKREŚLONYCH INFORMACJI W PLIKACH
+WYSZUKIWANIE OKREŚLONYCH INFORMACJI W PLIKACH - GREP
 (komenda do nauczenia, jeszcze mam braki)
+wyszukaj w pliku napisów spełniających wyrażenie regularne i wyświetl je) służy do znalezienia każdego wystąpienia słowa – ciągu znaków, frazy – w pliku utworzonym w systemie Linux. Ogólny wzór polecenia  grep można przedstawić następująco:
+
+grep  [ opcja ]   [ -e ]  [ wzór ]    [nazwa pliku] 
+
+Opcje
+-b → wyświetla odnalezione miejsca
+-c → wyświetla liczbę odnalezionych wyrażeń
+-h → nie wypisuje nazwy plików przed każdym odnalezionym miejscem
+-i → ignoruje różnice w wielkości liter
+-l → wyświetla tylko nazwy plików w których odnaleziony został wzór
+-n → wyświetla numer każdego wiersza, w którym został odnaleziony wzór
+-s → brak wyświetlania jakichkolwiek komunikatów
+-v → wyświetla tylko te wiersze, które nie zawierają wzoru
+-w → wyświetla tylko te wiersz, w których wzór jest całym wyrazem
+
 grep - pozwala wyświetlić tylko te linie które spełniają warunek wpisany do komendy
 grep -v - wyszuka tylko te linie które nie zawierają wzorca
 grep -i -ignoruje wielkość wyszukiwanych liter
 grep -r - pozwoli wyszukać wszystkie pliki wewnątrz podanej ścieżki
 grep -c - zwraca ilość lini które zawierają szukany wzorzec
+przykład: $grep -n '^jinok.' /etc/passwd - wyświetli wszystkie wystąpienia użytkownika jinok, który znajduje się w pliku passwd i poprzedzi go jego nr. w pliku.
+symbol ^ pokazuje ,że szukamy wierszy które zaczynają się od znaku (czy wyrażenia regularnego) znajdującego się zanim .
+Symbol  $ pokazuje, że poszukiwania znaków rozpoczynamy od końca wiersza.
+$grep '[KW]' pusty.txt - wyszuka wszystkie wystąpienia z K i W
+
+
+
 
 less -N - pozwala wyswietlić jeden plik tak jak stronę
 more -N - wyśwetla również stronę ale po trochu ją odkrywa
