@@ -395,9 +395,26 @@ ifconfig -v -zwiększa poziom szczegółowości pod kątem błędów
 -a wyświetla więcej szczegółów
 
 NARZĘDZIE ADMINISTRATORA ZAAWANSOWANE
+Pokazuje/manipuluje routingiem, urządzeniami sieciowymi, interfejsami i tunelami. IP to polecenie do konfiguracji interfejsów sieciowych, tablic tras czy tuneli.
+Składnia to: ip [opcje] OBIEKT [komenda|pomoc]
+             ip [ -force] -batch nazwa pliku
+        np. ip addr - pokazuje listę interfejsów ze szczegółowymi informacjami
+            ip link - pokazuje same interfejsy
+            ip -brief addr - lista interfejsów z krótką informacją o warstwie sieciowej
+            ip route - tablica routingu
+            ip neighbour - pokazuje sąsiadów(tabelę ARP)
+            ip link set <nazwa interface> up/down - aby ustawić interfejs w górę lub w dół
+            ip addr add/del ip/mask dev interface - aby dodać lub usunąć adres IP do interfejsu
+            ip route add default via ip dev interface - aby dodać domyślną trasę
+            ip link set eth0 down - wyłączenie interfejsu eth0
+            ip route show - tablica routingu
+            
+            
 ip - zaawansowane urządzenie do sterowania wszystkimi aspektami sieci. Powiela funkcje ifconfig, interfaces, resolv.conf, zaawansowane
 np. ip a - pokazuje wszystkie interface
-ip link set <nazwa interface> up/down
+
+
+
 
 ping - protokół ICMP echo.
 ping -i -ustala czas pomiędzy odpytaniami
