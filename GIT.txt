@@ -8,11 +8,13 @@ user.email=jinok@o2.pl
 user.name=jinok
 credential.helper=cache
 
-mkdir folder
-cd folder
-git init folder  
+TWORZENIE ROSPOZYTORIUM
+mkdir folder - utwórz katalog który będzie twoim repozytorium lub wybierz ten który ma nim zostać
+cd folder - przechodzimy do wybranego folderu
+git init folder - tworzymy repozytorium, ukryty folder .git pojawi się po za katalogiem folder
+git init - wchodzimy do katalogu, inicjalizacja repozytorium, ukryty folder .git powstanie w środku katalogu
 
-
+PODSTAWOWE KOMENDY W GIT
 git init - tworzenie repozytorium git, to jest miejsce gdzie są przechowywane pliki( powstaje folder .git)
 git status - informuje nas co mamy w katalogu
 git add linux.txt - dodajemy nasz plik do stagingu czyli zmian które czekają na dodanie do repozytorium. Gdy mamy więcej plików dodajemy je po koleii lub możemy wpisać je w jednej lini 
@@ -28,10 +30,16 @@ git checkout plik.txt
 git reset - czysty staging
 
 DODAWANIE REPOZYTORIUM ZDALNEGO
-git remote add origin https://github.com/tkkosako/kurs_linux_git.git
+Wchodzimy na stronę github i tworzymy nowe reposytorium
+kopiujemy link do nowego repo
+git remote -v - sprawdzenie czy już istnieją gałęzie zdalne
+git remote add origin https://github.com/tkkosako/kurs_linux_git.git  - tworzenie połaczenia z nowym reposytorium zdalnym przez https
+git remote add origin git@github.com:tkkosako/katalog_gita_z_plikami.git - repo zdalne przez ssh
+git remote set-url origin git@github.com:tkkosako/kurs_linux_git.git - naprawa błędów np. pisowni, naprawa jednym poleceniem
 origin - jego umowna nazwa
 master - nazwa gałęzi
 git push wysyłamy nasze repozytorium 
+git push -u origin master - wysyłanie pierwszy raz na zdalne repo
 git push origin master
 podajemy login i hasło
 
@@ -50,7 +58,7 @@ git remote set-url origin git@github.com:tkkosako/kurs_linux_git.git
 git pull
 git push
 git branch - na której gałęzi obecnie jesteśmy
-git checkout -b "dodajemy branch" ( gdy sprawdzimy git branch to zobacztymy że jest kolejna gałąź)
+git checkout -b "dodajemy branch" ( gdy sprawdzimy git branch to zobaczymy że jest kolejna gałąź)
 
 git touch plik.txt
 git add .
